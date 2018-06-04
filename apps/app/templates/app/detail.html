@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>User Details</title>
+        <link rel="stylesheet" href="{% static 'trip/css/style.css'%}">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h5 style="text-align: right">
+                <a href="/home" style="margin: 20px">Home</a> |
+                <a href="/logout" style="margin: 20px">Logout</a>
+                <h3>User Profile</h3>
+            </h5>
+            <table class='striped'>
+                <tbody>
+                    <thead>
+                       
+                        <th>
+                            <p>title: {{job.title}}</p>
+                        </th>
+                    </thead>
+                    <tr>
+                        <td>
+                            <p>location:{{job.location}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Posted By:{{job.user.firstname}}</p>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+            <br>
+
+            <a href="/add_to_myjob/{{job.id}}"> add</a>
+            <!-- {%if friend.friend.id == user.id%}
+                <h5>
+                    <a href="/delete/{{user.id}}">Delete</a>
+                </h5>
+            {%endif%} -->
+        </div>
+        
+    </body>
+</html>

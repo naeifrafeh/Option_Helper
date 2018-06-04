@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Option Helper</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h5 style="text-align: right">
+    <a href="/logout">Logout</a></h5>
+    <br>
+    <h5 style="text-align: right">
+      <a href="/add_job_form">add A Job</a></h5> 
+      
+      <br>
+
+<div class="container">
+        <h1>Welcome,  {{current_user.firstname}}</h1>
+        <h3>Here is the list of your Jobs: </h3>
+        {% if messages %}
+            {% for message in messages %}
+                <h1>{{ message }}</h1>
+            {% endfor %}
+        {% endif %} 
+           
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Job</th>
+        <th>Location</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <p>{{job}}</p>
+    {%for job in other_jobs%}
+    <tbody>
+      <tr>
+        <td>{{job.title}}</td>
+        <td>{{job.location}}</td>
+        <td><a href="/show/{{job.id}}">show </a><a href="/add_to_myjob/{{job.id}}"> add</a><a href="/edit_page/{{job.id}}"> edit Profile</a><a href="/remove/{{job.id}}"> remove job</a></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+    </table>
+    <h3>My Jobs</h3>
+  <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>My Jobs</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {%for myjob in user_jobs%}
+          <tr>
+            <td>{{myjob.title}}</td>
+            <td> <a href="/show/{{myjob.id}}">show</a><a href="/remove/{{myjob.id}}"> done</a></td>
+          </tr>
+          {%endfor%}
+
+        </tbody>
+        
+      </table><br><br>
+
+
+
+
+    
+  </table><br><br>
+
+
+  </div>
+  </body>
+  </html>

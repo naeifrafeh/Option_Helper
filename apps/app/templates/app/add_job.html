@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Jobs </title>
+</head>
+<body>
+        <h5 style="text-align: right">
+                <a href="/home" style="margin: 20px">Home</a> |
+                <a href="/logout" style="margin: 20px">Logout</a></h5>
+                <br>
+                <h2>Add Job</h2>
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+        {% endif %}
+    
+    <form class="form-horizontal" action='/add_job'  method="POST">
+        {% csrf_token %}
+          <fieldset>
+            <div id="legend">
+              <legend class="">Add Job</legend>
+            </div>
+            <div class="control-group">
+            <div class="control-group">
+                <!-- Title -->
+                <label class="control-label"  for="title">Title</label>
+                <div class="controls">
+                    <input type="text" id="title" name="title" placeholder="" class="input-xlarge">
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Descriptions  -->
+                <label class="control-label"  for="description">Description</label>
+                <div class="controls">
+                    <input type="text" id="description" name="description" placeholder="" class="input-xlarge">
+                </div>
+            </div>
+         
+            <div class="control-group">
+              <!--Location  -->
+              <label class="control-label" for="location">Location</label>
+              <div class="controls">
+                <input type="text" id="location" name="location" placeholder="" class="input-xlarge">
+              </div>
+            </div>
+            <div class="control-group">
+              <!-- Button -->
+              <div class="controls">
+                <button class="btn btn-success">Add Job</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
